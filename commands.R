@@ -1,6 +1,7 @@
 ### some commands for R  ###
 
 data <- read.table("runs\\moveset_run1\\FYC.dat", colClasses = c(rep("numeric")), sep="", head=T)
+data <- read.table("runs\\moveset_run1\\FYC.dat", colClasses = c(rep("numeric",1),rep("NULL",9)), sep="", head=T)
 head(data)
 qplot(data=data,x=X29DI, y=X30DI, alpha=I(0.01))
 
@@ -39,3 +40,15 @@ for(i in 2:26){
   
   dev.off()
 }
+
+wt_run_PC1_total <- vector(length=10001)
+for(i in 1:15){
+df<-read.table(paste("D:\\Maria\\tail_LLRGA_CAMPARI\\runs\\ProDy\\wt\\Proj_wt_run", i, "_ca.dat", sep=""), colClasses = c("numeric"), sep="", head=F)
+colnames(df) <- c(paste("run",i, sep=""))
+mypath <- file.path("D:","Maria","tail_LLRGA_CAMPARI","runs","ProDy","wt",paste("acf_wt_run",i, "_PC1.png", sep = ""))
+png(file=mypath)
+wt_acf <- acf(df, lag.max=10000, type = "correlation", demean=TRUE)
+wt_run_PC1_total <- cbind(wt_run_PC1_total, wt_acf$acf)
+dev.off()
+}
+colnames(wt_run_PC1_total) <- c("0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15")
