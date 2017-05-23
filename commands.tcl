@@ -22,3 +22,8 @@ mol delete top
 
 
 pbc wrap -sel "name CLA SOD" -center origin -all
+
+set all [atomselect top $all] 
+set cen [geom_center $all] 
+set mat [ trans origin $cen ] 
+$all move $mat 
