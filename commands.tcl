@@ -19,3 +19,6 @@ puts $file "$i|$dist"
 
 close $file
 mol delete top
+
+
+pbc wrap -sel "name CLA SOD" -center origin -all
