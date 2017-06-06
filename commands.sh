@@ -27,3 +27,4 @@ for i in {1..10}; do cp analysis0_"$i"E7/RGHIST.dat RGHIST/$i.dat; done
 cd RGHIST
 for i in {1..10}; do sed -i "s/Analy./${i}/g" $i.dat; done
 paste <(awk '{print $1}' 10.dat) <(awk '{print $2}' 1.dat) <(awk '{print $2}' 2.dat) <(awk '{print $2}' 3.dat) <(awk '{print $2}' 4.dat) <(awk '{print $2}' 5.dat) <(awk '{print $2}' 6.dat) <(awk '{print $2}' 7.dat) <(awk '{print $2}' 8.dat) <(awk '{print $2}' 9.dat) <(awk '{print $2}' 10.dat) > del_run1.dat
+paste <(awk '{print $1}' 10.dat) <(awk '{print $2}' 1.dat) <(awk '{print $2}' 2.dat) <(awk '{print $2}' 3.dat) <(awk '{print $2}' 4.dat) <(awk '{print $2}' 5.dat) <(awk '{print $2}' 6.dat) <(awk '{print $2}' 7.dat) <(awk '{print $2}' 8.dat) <(awk '{print $2}' 9.dat) <(awk '{print $2}' 10.dat) <(awk '{print $2}' 11.dat) <(awk '{print $2}' 12.dat) <(awk '{print $2}' 13.dat) <(awk '{print $2}' 14.dat) <(awk '{print $2}' 15.dat)> del_run1.dat
