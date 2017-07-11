@@ -13,6 +13,7 @@ for i in *; do echo $i; done        #a for-loop for files
 for i in /etc/*.conf; do cp $i /backup; done         #a for-loop for files
 for i in */; do (cd “$i” && git fetch) done           #a for-loop for directories
 for i in {0..3}; do for j in {0..9}; do echo -n \($i, $j\); echo Is today the $i$j \?; done; done           #a double for-loop
+ls -1q log* | wc -l    #count number of files
 
 for d in */; do cp del_run1/catdcd "$d"; done
 #create prot.ind#
