@@ -31,5 +31,10 @@ for i in {1..10}; do sed -i "s/Analy./${i}/g" $i.dat; done
 paste <(awk '{print $1}' 10.dat) <(awk '{print $2}' 1.dat) <(awk '{print $2}' 2.dat) <(awk '{print $2}' 3.dat) <(awk '{print $2}' 4.dat) <(awk '{print $2}' 5.dat) <(awk '{print $2}' 6.dat) <(awk '{print $2}' 7.dat) <(awk '{print $2}' 8.dat) <(awk '{print $2}' 9.dat) <(awk '{print $2}' 10.dat) > del_run1.dat
 paste <(awk '{print $1}' 10.dat) <(awk '{print $2}' 1.dat) <(awk '{print $2}' 2.dat) <(awk '{print $2}' 3.dat) <(awk '{print $2}' 4.dat) <(awk '{print $2}' 5.dat) <(awk '{print $2}' 6.dat) <(awk '{print $2}' 7.dat) <(awk '{print $2}' 8.dat) <(awk '{print $2}' 9.dat) <(awk '{print $2}' 10.dat) <(awk '{print $2}' 11.dat) <(awk '{print $2}' 12.dat) <(awk '{print $2}' 13.dat) <(awk '{print $2}' 14.dat) <(awk '{print $2}' 15.dat)> del_run1.dat
 
- for i in {1..54}; do sed -n '2p' "$i".dat >> POLYAVG.dat; done  #copy the second line from multiple files to a new file
+for i in {1..54}; do sed -n '2p' "$i".dat >> POLYAVG.dat; done  #copy the second line from multiple files to a new file
 
+###copy the second columns in a single file###
+for i in *.dat; do awk '{print $2}' "$i" > "$i".out; done 
+touch polymer.dat
+for i in {32..1}; do paste "$i".dat.out polymer.dat > temp; mv temp polymer.dat; done
+rm *.dat.out
