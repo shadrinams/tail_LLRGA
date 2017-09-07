@@ -3,6 +3,7 @@
  
 export PATH=$PATH:/gs/home/shadrina/soft/ProDy_exe/bin/  #assign a path
 module load python/2.7.9
+prody catdcd -s "ca resnum 440:475" --pdb protein_START.pdb --align "ca resnum 1:439" dcd protein_traj.dcd
 
  chmod 755 catdcd              #(rwxr-xr-x)
  ./catdcd -o mc_wtprot_traj.dcd -i wt.ind mc_wt_traj.dcd         #remove water from a trajectory
