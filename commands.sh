@@ -45,3 +45,6 @@ for i in *.dat; do awk '{print $2}' "$i" > "$i".out; done
 touch polymer.dat
 for i in {32..1}; do paste "$i".dat.out polymer.dat > temp; mv temp polymer.dat; done
 rm *.dat.out
+
+#Split multi-fasta sequence file
+awk '/^>/{s=++d".fasta"} {print > s}' <inputFile>
