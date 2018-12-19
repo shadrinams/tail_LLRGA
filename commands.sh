@@ -48,3 +48,8 @@ rm *.dat.out
 
 #Split multi-fasta sequence file
 awk '/^>/{s=++d".fasta"} {print > s}' <inputFile>
+
+#Rename files
+mmv '*_*_*_1.*' '#1_#2_#3_22.#4'
+mmv '*_*_*_2.*' '#1_#2_#3_23.#4'
+mmv '*_*_*_3.*' '#1_#2_#3_24.#4'
